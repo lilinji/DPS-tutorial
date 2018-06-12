@@ -1,20 +1,3 @@
-# Introduction
-
- 运维笔记-记录个人的痛点
-
-最详细，最简单的零基础 运维入门教程，人人都能学会。
-
-原文发布于我的个人博客：http://blog.51cto.com/lilinji 
-
-源码位于：https://github.com/lilinji/DPS-tutorial.git
-
-
-
-### 联系我:
-
-email: lilinji2020@gmail.com
-qq: 1760729969
-
 ### 前言（笔记墨迹之经典语录）
 
 坚持就是胜利！
