@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 * [0. 开始](README.md)
-* [1. 介绍](chapters/1.md)
+* [1. 学习](chapters/1.md)
 ## 网络基础
 * [2. 网络基础理论](basic/README.md)
   - [TCP/IP网络模型](basic/tcpip.md)
