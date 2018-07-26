@@ -21,3 +21,6 @@
 * [3. 编程开发](develop/README.md)
   - [C++入门心得](develop/C++入门心得.md)
   - [C++学习资料](develop/c++.md)
+## 运维心得
+* [3. 运维心得](Devops/README.md)
+  - [Linux下、环境变量进不去root](Devops/rootsudo.md)
