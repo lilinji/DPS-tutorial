@@ -8,7 +8,7 @@ C++学习路径
 ---
 要开始写出别人不喷你的代码，你至少要花几天时间看看 **C++Primer** 和 **Effective C++**，为了学习C++11，请翻阅 **Effective Modern C++**。然后请查阅资料了解几种编程范式：面向过程，面向对象（封装，抽象多态)，明白泛型编程，函数式编程等基本概念。然后了解下和Ｃ++对于内存管理和对象生命周期的机制（可以看看allocator源代码）。
 
-学习这些东西的代码可以放在你的 [github](https://github.com/) 仓库上，心得可以放在你的个人博客站点。这里提供两个搭建博客站点的工具： [word press](https://cn.wordpress.org/) 搭建带数据库的博客站点，或者使用 [Github Page](https://pages.github.com/) 搭建轻量级的博客站点。域名的话可以在 [namecheap](https://www.namecheap.com/) 上买，服务虚拟机(VPS)的话可以选择阿里云或者   [digitalocean](https://www.digitalocean.com/) 。举个例子，我就把学习的代码放在 [CPP1x-Study](https://github.com/CheYulin/CPP11Study) 和 [STL-Study](https://github.com/CheYulin/STL-Study) 上；我的中文博客站点 [blog.cheyulin.me](http://blog.cheyulin.me)， 我的英文博客站点 [en.blog.cheyulin.me](http://en.blog.cheyulin.me) 。
+学习这些东西的代码可以放在你的 [github](https://github.com/) 仓库上，心得可以放在你的个人博客站点。这里提供两个搭建博客站点的工具： [word press](https://cn.wordpress.org/) 搭建带数据库的博客站点，或者使用 [Github Page](https://pages.github.com/) 搭建轻量级的博客站点。域名的话可以在 [namecheap](https://www.namecheap.com/) 上买，服务虚拟机(VPS)的话可以选择阿里云或者   [digitalocean](https://www.digitalocean.com/) 。举个例子，我就把学习的代码放在 [CPP1x-Study](https://github.com/CheYulin/CPP11Study) 和 [STL-Study](https://github.com/CheYulin/STL-Study) 上；我的中文博客[http://blog.51cto.com/lilinji](http://blog.51cto.com/lilinji) 。
 
 C++语言和库特性学习
 ---
