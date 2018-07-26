@@ -19,4 +19,5 @@
   - [LLDP](basic/lldp.md)
 ## 编程开发
 * [3. 编程开发](develop/README.md)
+  - [C++入门心得](develop/C++入门心得.md)
   - [C++学习资料](develop/c++.md)
