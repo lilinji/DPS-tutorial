@@ -1,12 +1,12 @@
-# UDP
+# 2.6 UDP
 
 `UDP`是一种对象数据报的传输层协议，它不提供可靠性，其数据报被封装在`IP`数据报中，封装格式如下图所示：
 
-![UDP封装格式](images/UDP-packaging-format.png)
+![UDP&#x5C01;&#x88C5;&#x683C;&#x5F0F;](../.gitbook/assets/udp-packaging-format.png)
 
 首部格式为
 
-![UDP头](images/UDP-header.jpg)
+![UDP&#x5934;](../.gitbook/assets/udp-header.jpg)
 
 * 源端口号和目的端口号分表表示了发送进程和接收进程
 * `UDP`长度字段包括了`UDP`首部和`UDP`数据的字节长度
@@ -30,10 +30,9 @@ why？因为`IP`层本身没有超时重传机制------由更高层（比如`TCP
 `MSS`（`Maxitum Segment Size`）最大分段大小的缩写，是`TCP`协议里面的一个概念
 
 * 1）`MSS`就是TCP数据包每次能够传输的最大数据分段。为了达到最佳的传输效能`TCP`协议在建立连接的时候通常要协商双方的`MSS`值，这个值`TCP`协议在实现的时候往往用`MTU`值代替（需要减去`IP`数据包包头的大小`20Bytes`和`TCP`数据段的包头`20Bytes`）所以往往`MSS`为`1460`。通讯双方会根据双方提供的`MSS`值得最小值确定为这次连接的最大MSS值。
-
 * 2）相信看到这里，还有最后一个问题：`TCP`是如何实现分段的呢？其实`TCP`无所谓分段，因为每个`TCP`数据报在组成前其大小就已经被`MSS`限制了，所以`TCP`数据报的长度是不可能大于`MSS`的，当然由它形成的IP包的长度也就不会大于`MTU`，自然也就不用`IP`分片了。
 
-![UDP和IP](images/UDP-and-IP.png)
+![UDP&#x548C;IP](../.gitbook/assets/udp-and-ip.png)
 
 * 发生`ICMP`不可达差错的另一种情况是，当路由器收到一份需要分片的数据报，而在`IP`首部又设置了不分片（`DF`）的标志比特。如果某个程序需要判断到达目的端的路途中最小`MTU`是多少—称作路径`MTU`发现机制，那么这个差错就可以被该程序使用。
 * 理论上，`UDP`数据的最大长度为：`65535-20`字节`IP`首部长度`-8`字节`UDP`首部长度=`65507`。但是大多是实现都比这个值小，主要是受限于`socket`接口以及`TCP/IP`内核的限制。大部分系统都默认提供了可读写大于`8192`字节的`UDP`数据报。
@@ -41,5 +40,6 @@ why？因为`IP`层本身没有超时重传机制------由更高层（比如`TCP
 
 ## 参考
 
-- [User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protoco)
-- [UDP - IETF](https://www.ietf.org/rfc/rfc768.txt)
+* [User Datagram Protocol](https://en.wikipedia.org/wiki/User_Datagram_Protoco)
+* [UDP - IETF](https://www.ietf.org/rfc/rfc768.txt)
+

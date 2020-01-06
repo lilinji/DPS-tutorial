@@ -1,4 +1,4 @@
-# ICMP
+# 2.3 ICMP
 
 ## ICMP协议格式
 
@@ -6,30 +6,24 @@
 
 ## `ICMP`报文格式
 
-```
+```text
   Bits    0–7     8–15    16–23   24–31
   0       Type     Code        Checksum
   32      Rest of Header
 ```
 
-- `Type` – ICMP type as specified below.
-- `Code` – Subtype to the given type.
-- `Checksum` – Error checking data. Calculated from the ICMP header+data, with value 0 for this field. The checksum algorithm is specified in [RFC 1071](https://tools.ietf.org/html/rfc1071).
-- `Rest of Header` – Four byte field. Will vary based on the ICMP type and code.
+* `Type` – ICMP type as specified below.
+* `Code` – Subtype to the given type.
+* `Checksum` – Error checking data. Calculated from the ICMP header+data, with value 0 for this field. The checksum algorithm is specified in [RFC 1071](https://tools.ietf.org/html/rfc1071).
+* `Rest of Header` – Four byte field. Will vary based on the ICMP type and code.
 
 `ICMP`报文可以分为两类：查询报文和差错报文，具体报文类型如下图所示：
 
-![ICMP报文类型](images/icmp-message-type.png)
-
+![ICMP&#x62A5;&#x6587;&#x7C7B;&#x578B;](../.gitbook/assets/icmp-message-type.png)
 
 下面各种情况都不会导致产生`ICMP`差错报文：
 
-1) `ICMP`差错报文（但是，`ICMP`查询报文可能会产生`ICMP`差错报文）。
-2) 目的地址是广播地址或多播地址的`IP`数据报。
-3) 作为链路层广播的数据报。
-4) 不是`IP`分片的第一片。
-5) 源地址为零地址、环回地址、广播地址或多播地址。
-
+1\) `ICMP`差错报文（但是，`ICMP`查询报文可能会产生`ICMP`差错报文）。 2\) 目的地址是广播地址或多播地址的`IP`数据报。 3\) 作为链路层广播的数据报。 4\) 不是`IP`分片的第一片。 5\) 源地址为零地址、环回地址、广播地址或多播地址。
 
 这些规则是为了防止过去允许`ICMP`差错报文对广播分组响应所带来的广播风暴。
 
@@ -39,7 +33,7 @@
 
 构造一个`ICMP Address Mask Request`：
 
-```sh
+```bash
 #We want to send an ICMP packet Address Mask Request and wait 10 seconds to see the replies. We mask the packet with source address of 10.2.3.4 and we send it to the address 10.0.1.255:
 icmpush -mask -sp 10.2.3.4 -to 10 10.0.1.255
 ```
@@ -50,15 +44,15 @@ icmpush -mask -sp 10.2.3.4 -to 10 10.0.1.255
 
 `ICMP`时间戳请求允许系统向另一个系统查询当前的时间，返回的建议值是自午夜开始计算的毫秒数，协调的统一时间，可以达到毫秒的分辨率。
 
-![ICMP时间戳请求头](images/icmp-timestamp-headers.jpg)
+![ICMP&#x65F6;&#x95F4;&#x6233;&#x8BF7;&#x6C42;&#x5934;](../.gitbook/assets/icmp-timestamp-headers.jpg)
 
-构造一个ICMP时间戳请求： `icmpush -tstamp  192.168.3.255`
+构造一个ICMP时间戳请求： `icmpush -tstamp 192.168.3.255`
 
 ## ICMP端口不可达差错
 
 根据`code`的不同，共有15种类型的`ICMP`差错报文。
 
-![ICMP差错报文类型](images/icmp-error-message.png)
+![ICMP&#x5DEE;&#x9519;&#x62A5;&#x6587;&#x7C7B;&#x578B;](../.gitbook/assets/icmp-error-message.png)
 
 注意，`ICMP`报文是在主机之间交换的，而不用目的端口号，而`UDP`数据报则是从一个特定端口发送到另一个特定端口。
 
@@ -68,7 +62,7 @@ icmpush -mask -sp 10.2.3.4 -to 10 10.0.1.255
 
 `ping`通过`ICMP`回显请求和应答实现。
 
-```sh
+```bash
 # setup ping interval in seconds
 ping -i 5 IP
 
@@ -84,8 +78,7 @@ ping -s 100 localhost
 
 ## traceroute
 
-`ping`程序提供一个记录路由选项，但并不是所有的路由机都支持这个选项，而且IP首部选项字段最多也只能存储9个`IP`地址，因此开发`traceroute`是必要的。
-`traceroute`利用了`ICMP`报文和`IP`首部的`TTL`字段。`TTL`是一个`8bit`的字段，为路由器的跳站计数器，也表示数据报的生存周期。每个处理数据报的路由器都需要将`TTL`减一。如果`TTL`为0或者1，则路由器不转发该数据报，如果`TTL`为1，路由器丢弃该包并给源地址发送一个`ICMP`超时报文（如果是主机接收到`TTL`为1的数据报可以交给上层应用程序）。
+`ping`程序提供一个记录路由选项，但并不是所有的路由机都支持这个选项，而且IP首部选项字段最多也只能存储9个`IP`地址，因此开发`traceroute`是必要的。 `traceroute`利用了`ICMP`报文和`IP`首部的`TTL`字段。`TTL`是一个`8bit`的字段，为路由器的跳站计数器，也表示数据报的生存周期。每个处理数据报的路由器都需要将`TTL`减一。如果`TTL`为0或者1，则路由器不转发该数据报，如果`TTL`为1，路由器丢弃该包并给源地址发送一个`ICMP`超时报文（如果是主机接收到`TTL`为1的数据报可以交给上层应用程序）。
 
 `traceroute`程序开始时发送一个`TTL`字段为1的`UDP`数据报（选择一个不可能的值作为`UDP`端口号），然后将`TTL`每次加1，以确定路径中每个路由器。每个路由器在丢弃`UDP`数据报的时候都返回一个`ICMP`超时报文（如：`ICMP time exceeded in-transit`, length 36），而最终主机则产生一个`ICMP`端口不可达报文（如： `ICMP 74.125.128.103 udp port 33492 unreachable`, length ）。
 
@@ -99,5 +92,6 @@ ping -s 100 localhost
 
 ## 参考
 
-- [TCP/IP协议详解卷一 -- ICMP：Internet控制报文协议](https://www.kancloud.cn/lifei6671/tcp-ip/140197)
-- [Traceroute](https://zh.wikipedia.org/wiki/Traceroute)
+* [TCP/IP协议详解卷一 -- ICMP：Internet控制报文协议](https://www.kancloud.cn/lifei6671/tcp-ip/140197)
+* [Traceroute](https://zh.wikipedia.org/wiki/Traceroute)
+
