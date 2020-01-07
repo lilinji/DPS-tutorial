@@ -1,8 +1,8 @@
 # Table of contents
 
 * [Introduction](README.md)
-* [0. 开始](README.md)
-* [1. 学习](chapters/1.md)
+* [0. 开始](readme-1.md)
+* [1. 学习](1.md)
 * [2. 网络基础理论](basic/README.md)
   * [2.1 TCP/IP网络模型](basic/tcpip.md)
   * [2.2 ARP](basic/arp.md)
@@ -21,7 +21,7 @@
   * [3.2 C++学习资料](develop/c++.md)
   * [3.3 Python 入门心得](develop/3.3-python-ru-men-xin-de.md)
   * [3.4 Mysql 入门心得](develop/3.4-mysql-ru-men-xin-de.md)
-  * [Perl 与 Python 之间的一些异同](develop/perl-yu-python-zhi-jian-de-yi-xie-yi-tong.md)
+  * [3.5 Perl 与 Python 之间的一些异同](develop/perl-yu-python-zhi-jian-de-yi-xie-yi-tong.md)
 * [4. Devops](devops/README.md)
   * [4.1 Install MYSQL](devops/4.1-install-mysql.md)
   * [4.2 Centos环境无法登陆root](devops/rootsudo.md)
