@@ -26,4 +26,5 @@
 * [4. Devops](devops/README.md)
   * [4.1 Install MYSQL](devops/4.1-install-mysql.md)
   * [4.2 Centos环境无法登陆root](devops/rootsudo.md)
+* [X.关于稳定](x.-guan-yu-wen-ding.md)
 
