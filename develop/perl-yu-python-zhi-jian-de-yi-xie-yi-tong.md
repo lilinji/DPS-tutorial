@@ -1,4 +1,4 @@
-# 3.5 Perl 与 Python 之间的一些异同
+# 3.6 Perl 与 Python 之间的一些异同
 
 lilinjiuk@gmail.com
 
